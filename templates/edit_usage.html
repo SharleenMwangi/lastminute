@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Usage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .flash-message {
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+            border-radius: 5px;
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+
+        .flash-message.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .form-group {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+        td {
+            background-color: #fafafa;
+        }
+
+        input[type="number"] {
+            padding: 8px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-button {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            table {
+                width: 100%;
+                font-size: 14px;
+            }
+
+            input[type="number"] {
+                font-size: 14px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Edit Usage</h2>
+
+        <p>User ID: {{ user_id }}</p>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="flash-message {{ 'success' if 'success' in messages[0] else '' }}">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('update_usage', user_id=user_id) }}">
+            <!-- Add hidden fields for year and month -->
+            <input type="hidden" name="year" value="{{ year }}">
+            <input type="hidden" name="month" value="{{ month }}">
+        
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Meter Number</th>
+                        <th>Created At</th>
+                        <th>Status</th>
+                        <th>Usage</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.meter_number }}</td>
+                        <td>{{ user.created_at }}</td>
+                        <td>{{ user.status }}</td>
+                        <td>
+                            <input type="number" name="usage" value="{{ usage }}" required>
+                        </td>
+                        <td>
+                            <button type="submit">Update Usage</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+
+        <div class="back-button">
+            <a href="{{ url_for('admin_dashboard') }}">Back to Dashboard</a>
+        </div>
+    </div>
+
+    <script>
+        // Real-time calculation for billing amount (optional)
+        document.getElementById('usage').addEventListener('input', function() {
+            const usage = parseFloat(this.value) || 0;
+            const chargePerCubicMeter = usage > 20 ? 5 : 100 / 20; // Ksh 5 per cubic meter if usage > 20
+            const billingAmount = usage * chargePerCubicMeter;
+
+            document.getElementById('usage_units').value = (usage * chargePerCubicMeter).toFixed(2);
+            document.getElementById('billing_amount').value = billingAmount.toFixed(2);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+/* General Styles */
+body {
+    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    background-image: url('/static/images/waterback3.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Header Styles */
+header {
+    background-color: #c8e0f8;
+    color: #0f0f0f;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .title h1 {
+    margin: 0;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+header .main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header .logo img {
+    max-width: 150px;
+    height: auto;
+}
+
+/* Menu Styles */
+.menu {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+.menu a:hover,
+.menu a.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Responsive Toggle Menu */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+}
+
+.menu.show {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    .menu a {
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Content Box Styles */
+.content-box {
+    background-color: rgba(236, 241, 241, 0.95);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 900px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.content-box h2 {
+    color: #2b4f60;
+    font-size: 1.6em;
+    text-align: center;
+}
+
+.content-box table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.content-box th,
+.content-box td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.content-box th {
+    background-color: #007bff;
+    color: white;
+}
+
+.content-box tr:nth-child(even) {
+    background-color: rgba(158, 203, 209, 0.5);
+}
+
+/* Form Styles */
+form {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1em;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Help & Docs Section */
+#help-docs ul {
+    list-style: square;
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+#help-docs ul li {
+    margin: 10px 0;
+    color: #333;
+}
+
+#help-docs ul li strong {
+    color: #007bff;
+}
+
+/* Utility Styles */
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .content-box {
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    form {
+        max-width: 90%;
+    }
+
+    .menu a {
+        font-size: 0.9em;
+    }
+}

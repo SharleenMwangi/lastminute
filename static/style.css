@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body, input {
+    font-family: "Poppins", sans-serif;
+}
+
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Admin Login Button Styling */
+.admin-login-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.admin-login-link {
+    background-color: #4b82d4;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.admin-login-link:hover {
+    background-color: #165674;
+}
+
+body {
+    background-image: url('/static/images/waterback3.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.box {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 490px;
+    background-color: #CCCCFF;
+    border-radius: 3.3rem;
+    box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
+    overflow: hidden;
+}
+
+.inner-box {
+    position: absolute;
+    width: calc(95% - 4rem);
+    height: calc(95% - 4rem);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    transition: transform 0.6s ease-in-out;
+}
+
+.forms-wrap {
+    position: relative;
+    height: 100%;
+    width: 45%;
+    top: 0;
+    z-index: 1;
+    background-color: #000080; /* Default color for Sign In */
+    transition: background-color 0.5s ease; /* Smooth transition */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-radius: 15px; 
+}
+
+.carousel {
+    position: relative;
+    height: 100%;
+    width: 55%;
+    background-color: #CCCCFF; /* Lighter blue for Sign Up */
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    transition: background-color 0.5s ease;
+}
+
+.background-slider {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    top: 0;
+    left: 0;
+    background-color: #000080;
+    transition: left 0.5s ease, background-color 0.5s ease;
+    z-index: 0;
+    opacity: 1;
+}
+
+form {
+    max-width: 260px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+
+form.sign-up-form {
+    display: none; /* Hide Sign Up form by default */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 60px;
+    margin: 0.6rem;
+    max-width: 100%;
+    height: auto;
+}
+
+.heading h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: black;
+}
+
+.heading h6 {
+    color: #696969;
+    font-weight: 400;
+    font-size: 0.75rem;
+    display: inline;
+}
+
+.toggle {
+    color: black;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: 0.3s;
+    margin-top: 1rem;
+}
+
+.toggle:hover {
+    color: #4F86F7;
+}
+
+.input-wrap {
+    position: relative;
+    height: 37px;
+    margin-bottom: 2rem;
+}
+
+.input-field {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #bbb;
+    padding: 0;
+    font-size: 0.95rem;
+    color: black;
+    transition: 0.4s;
+}
+
+label {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.95rem;
+    color: #696969;
+    pointer-events: none;
+    transition: 0.4s;
+}
+
+.input-field.active {
+    border-bottom-color: black;
+}
+
+.input-field.active + label {
+    font-size: 0.75rem;
+    top: -2px;
+}
+
+.sign-btn {
+    display: inline-block;
+    width: 100%;
+    height: 43px;
+    background-color: black;
+    color: antiquewhite;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    transition: 0.3s;
+}
+
+.sign-btn:hover {
+    background-color: #0077BE;
+}
+
+.text {
+    color: #696969;
+    font-size: 0.7rem;
+}
+
+.text a {
+    color: #424242;
+    transition: 0.3s;
+}
+
+.text a:hover {
+    color: #0077BE;
+}
+
+/* Style for Meter Number Input */
+.input-wrap input[name="meter_number"] {
+    /* Inherits from .input-field but you can add custom styles if needed */
+    font-size: 0.95rem;
+    color: black;
+    /* Add any custom styles here if necessary */
+}
+
+/* Label styling for all fields */
+.input-wrap label {
+    color: #696969;
+    font-size: 0.95rem;
+    transition: 0.4s;
+}
+
+/* Adjust label when input is focused or active */
+.input-wrap input:focus + label, 
+.input-wrap input.active + label {
+    font-size: 0.75rem;
+    top: -2px;
+    color: #000;
+}
+
+/* Ensure input fields have consistent font size and color */
+.input-field {
+    font-size: 0.95rem;
+    color: black;
+}
+
+/* Optional: If you want to style the meter number field specifically */
+.input-wrap input[name="meter_number"]:focus {
+    border-bottom-color: #0077BE; /* Example for focus effect */
+}
