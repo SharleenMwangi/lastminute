@@ -1,0 +1,45 @@
+<!-- admin_login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body>
+
+<main>
+    <div class="admin-box">
+        <div class="inner-box">
+            <div class="admin-form-wrap">
+                <form action="{{ url_for('admin_login') }}" method="POST" class="sign-in-form">
+                    <div class="logo">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                    </div>
+                    <div class="heading">
+                        <h2>Admin Login</h2>
+                    </div>
+                    <div class="actual-form">
+                        <div class="input-wrap">
+                            <input type="email" name="email" class="input-field" autocomplete="off" required />
+                            <label>Email</label>
+                        </div>
+                        <div class="input-wrap">
+                            <input type="password" name="password" class="input-field" minlength="4" autocomplete="off" required />
+                            <label>Password</label>
+                        </div>
+                        <input type="submit" value="Login" class="sign-btn"/>
+                        <p class="forgot-password">
+                            <a href="#">Forgot your password?</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

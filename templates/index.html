@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in & Sign up form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+ 
+<main>
+     <!-- Admin Login Button -->
+     <div class="admin-login-btn">
+        <a href="{{ url_for('admin_login') }}" class="admin-login-link">Admin Login</a>
+    </div>
+    <div class="box">
+        <div class="inner-box">
+            <div class="forms-wrap">
+                <!-- Sign-In Form -->
+                <form action="{{ url_for('index') }}" method="POST" class="sign-in-form">
+                    <input type="hidden" name="form_type" value="login">
+                    <div class="logo">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                    </div>
+                    <div class="heading">
+                        <h2>Welcome Back</h2>
+                        <h6>Not registered yet?</h6>
+                        <a href="#" class="toggle" id="signUpToggle">Sign Up</a>
+                    </div>
+                    <div class="actual-form">
+                        <div class="input-wrap">
+                            <input type="text" name="email" class="input-field" autocomplete="off" required />
+                            <label>Email</label>
+                        </div>
+                        <div class="input-wrap">
+                            <input type="password" name="password" minlength="4" class="input-field" autocomplete="off" required />
+                            <label>Password</label>
+                        </div>
+                        <input type="submit" value="Sign In" class="sign-btn"/>
+                        <p class="text">
+                            Forgotten your password?
+                            <a href="#">Get help</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="carousel">  
+
+
+
+                <form action="{{ url_for('index') }}" method="POST" class="sign-up-form">
+                    <input type="hidden" name="form_type" value="register">
+                    <div class="logo">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                    </div>
+                    <div class="heading">
+                        <h2>Get Started</h2>
+                        <div class="account-link">           
+                        <h6>Already have an account?</h6>
+                        <a href="#" class="toggle" id="signInToggle">Sign In</a>
+                    </div>
+                    <div class="actual-form">
+                        <div class="input-wrap">
+                            <input type="text" name="name" class="input-field" autocomplete="off" required />
+                            <label>Name</label>
+                        </div>
+                        <div class="input-wrap">
+                            <input type="email" name="email" class="input-field" autocomplete="off" required />
+                            <label>Email</label>
+                        </div>
+                        <div class="input-wrap">
+                            <input type="number" name="meter_number" class="input-field" autocomplete="off" required />
+                            <label>Meter Number</label>
+                        </div>
+                        <div class="input-wrap">
+                            <input type="password" name="password" minlength="4" class="input-field" autocomplete="off" required />
+                            <label>Password</label>
+                        </div>
+                        <input type="submit" value="Sign Up" class="sign-btn"/>
+                        <p class="text">
+                            By signing up, I agree to the 
+                            <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const signInForm = document.querySelector('.sign-in-form');
+    const signUpForm = document.querySelector('.sign-up-form');
+    const signUpToggle = document.getElementById('signUpToggle');
+    const signInToggle = document.getElementById('signInToggle');
+    const formsWrap = document.querySelector('.forms-wrap');
+    const carousel = document.querySelector('.carousel');
+
+    // Initially hide the sign-up form and set background color for sign-in form
+    signUpForm.style.display = 'none';
+    formsWrap.style.backgroundColor = '#CCCCFF';  // Dark blue color for sign-in form
+
+    // Toggle to show the Sign-Up form
+    signUpToggle.addEventListener('click', function(event) {
+        event.preventDefault();  // Prevent default link action
+        signInForm.style.display = 'none';
+        signUpForm.style.display = 'block';
+
+        // Change background color when Sign-Up form is visible
+        formsWrap.style.backgroundColor = '#4F86F7';  // Light blue color for sign-up form
+        carousel.style.backgroundColor = '#CCCCFF';  // Dark blue for carousel
+    });
+
+    // Toggle to show the Sign-In form
+    signInToggle.addEventListener('click', function(event) {
+        event.preventDefault();  // Prevent default link action
+        signUpForm.style.display = 'none';
+        signInForm.style.display = 'block';
+
+        // Change background color when Sign-In form is visible
+        formsWrap.style.backgroundColor = '#CCCCFF';  // Dark blue for forms-wrap
+        carousel.style.backgroundColor = '#000080';  // Dark blue for carousel
+    });
+
+    // Input field focus and placeholder hover effect
+    const inputFields = document.querySelectorAll('.input-field');
+    inputFields.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.classList.add('active');
+        });
+        input.addEventListener('blur', function() {
+            if (!this.value) {
+                this.classList.remove('active');
+            }
+        });
+    });
+});
+
+</script>
+</body>
+
+</html>

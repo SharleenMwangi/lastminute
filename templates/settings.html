@@ -1,0 +1,46 @@
+<!-- settings.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style3.css') }}">
+    <title>User Settings</title>
+</head>
+<body>
+    <header>
+        <div class="title">
+            <h2>Update Your Information</h2>
+        </div>
+    </header>
+
+    <div class="content-box">
+        <form method="POST" action="{{ url_for('settings') }}" id="settings-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="{{ user[1] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="{{ user[2] }}" required>
+            </div>
+            <!-- New meter number section -->
+            <div class="form-group">
+                <label for="meter_number">Meter Number:</label>
+                <input type="text" id="meter_number" name="meter_number" value="{{ user[4] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Save Changes</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="content-box">
+        <a href="{{ url_for('home') }}" class="view-doc-link">Back to Dashboard</a>
+    </div>
+</body>
+</html>

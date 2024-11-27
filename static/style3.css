@@ -1,0 +1,129 @@
+/* Body and page general styling */
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    background-image: url('/static/images/waterback3.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Header styling */
+header {
+    background-color: #c8e0f8;
+    color: #0f0f0f;
+    padding: 2px;
+}
+
+.title {
+    text-align: center;
+}
+
+/* Content box for form */
+.content-box {
+    background-color: rgba(236, 241, 241, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Center the content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: auto;
+}
+
+/* Form styling */
+form {
+    width: 100%;
+    background-color: rgba(236, 241, 241, 0.9); /* Same background as the content box */
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+/* Form title */
+form h2 {
+    color: #090f63;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+/* Form group styling */
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #090f63;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+/* Button styling */
+form button {
+    background-color: #4b82d4;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #165674;
+}
+
+/* Back to Dashboard link styling */
+.view-doc-link {
+    display: inline-block;
+    background-color: #4b82d4;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.view-doc-link:hover {
+    background-color: #165674;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    form {
+        padding: 15px;
+    }
+    form h2 {
+        font-size: 1.5em;
+    }
+    form button {
+        padding: 12px;
+    }
+    .view-doc-link {
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+    }
+}
