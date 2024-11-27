@@ -149,12 +149,19 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Meter Number</th>
+<<<<<<< HEAD
                         <th>Usage</th>
                         <th>Billing Amount</th>
                         <th>Payments Received</th>
                         <th>Created At</th>
                         <th>Action</th>
                         <th>Status</th>
+=======
+                        <th>Created At</th>
+                        <th>Status</th>
+                        <th>Usage</th>
+                        <th>Action</th>
+>>>>>>> e2bec86556d487ba2b69a39bbe903a991a1123c7
                     </tr>
                 </thead>
                 <tbody>
@@ -162,6 +169,7 @@
                         <td>{{ user.name }}</td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.meter_number }}</td>
+<<<<<<< HEAD
 
                         <td>
                             <input type="number" name="usage_amounts" value="{{ usage_amounts }}" required>
@@ -173,11 +181,14 @@
                             <input type="number" name="payments_received" value="{{ payments_received }}" required>
                         </td>
 
+=======
+>>>>>>> e2bec86556d487ba2b69a39bbe903a991a1123c7
                         <td>{{ user.created_at }}</td>
                         <td>{{ user.status }}</td>
                         <td>
                             <input type="number" name="usage" value="{{ usage }}" required>
                         </td>
+<<<<<<< HEAD
                         <tr>
                             <td>                            
                                 <form action="{{ url_for('admin_reports') }}" method="POST">
@@ -185,6 +196,11 @@
                                 </form>
                             </td>
                         </tr>
+=======
+                        <td>
+                            <button type="submit">Update Usage</button>
+                        </td>
+>>>>>>> e2bec86556d487ba2b69a39bbe903a991a1123c7
                     </tr>
                 </tbody>
             </table>

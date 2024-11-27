@@ -7,7 +7,10 @@ from flask_mysqldb import MySQL
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import timedelta
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e2bec86556d487ba2b69a39bbe903a991a1123c7
 # Initialize Flask application
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Set your secret key for session management
@@ -63,7 +66,10 @@ def create_tables_if_not_exists():
         # Create the 'users' table if it does not exist, with a meter_number field
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS users (
+<<<<<<< HEAD
                 User INT AUTO_INCREMENT PRIMARY KEY,
+=======
+>>>>>>> e2bec86556d487ba2b69a39bbe903a991a1123c7
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 name VARCHAR(100) NOT NULL,
                 email VARCHAR(100) UNIQUE NOT NULL,
@@ -86,6 +92,7 @@ def create_tables_if_not_exists():
             )
         """)
 
+<<<<<<< HEAD
         # Create the 'waterbilling.usage' table if it does not exist
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS waterbilling.usage (     
@@ -150,6 +157,8 @@ def create_tables_if_not_exists():
         connection.close()
     except pymysql.MySQLError as e:
         print(f"Error creating tables: {e}")
+=======
+>>>>>>> e2bec86556d487ba2b69a39bbe903a991a1123c7
         print("Tables ensured in the database.")
         cursor.close()
         connection.close()
@@ -334,6 +343,13 @@ def admin_reports():
 
     return render_template('admin_dashboard.html', users=users)
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> e2bec86556d487ba2b69a39bbe903a991a1123c7
 @app.route('/admin/edit_usage/<int:user_id>', methods=['GET', 'POST'])
 def edit_usage(user_id):
     if not session.get('is_admin'):
@@ -693,11 +709,16 @@ def edit_usage(user_id):
     payments_received=data['payments_received']
 )
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e2bec86556d487ba2b69a39bbe903a991a1123c7
 @app.route('/update_usage/<int:user_id>', methods=['POST'])
 def update_usage(user_id):
     if not session.get('is_admin'):
         flash("Access denied. Admins only.")
         return redirect(url_for('admin_login'))
+<<<<<<< HEAD
     
     # Retrieve form data
     new_usage = request.form.get('usage')  # Correctly define new_usage
@@ -721,6 +742,8 @@ def update_usage(user_id):
 
     return redirect(url_for('admin_reports'))
 
+=======
+>>>>>>> e2bec86556d487ba2b69a39bbe903a991a1123c7
 
     # Get the new usage from the form
     usage = request.form['usage']
@@ -865,7 +888,11 @@ def logout():
 # Run the app with SocketIO
 if __name__ == '__main__':
     socketio.run(app, debug=True)
+<<<<<<< HEAD
 from flask import render_template, request, redirect, url_for, session, flash
+=======
+from flask import render_template, request, redirect, url_for, session
+>>>>>>> e2bec86556d487ba2b69a39bbe903a991a1123c7
 from your_database_module import db, User, Message, Report, AdminSettings
 
 
